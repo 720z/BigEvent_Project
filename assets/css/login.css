@@ -1,0 +1,63 @@
+html,
+body {
+    height: 100%;
+    background: url(../images/login_bg.jpg) no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.logo {
+    position: absolute;
+    left: 40px;
+    top: 40px;
+}
+
+.content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 400px;
+    height: 310px;
+    background-color: #fff;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+.layui-form {
+    padding: 0 30px;
+}
+
+.content .title {
+    height: 60px;
+    /* 给父元素设置flex布局，主侧轴设置居中对齐 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link a {
+    float: right;
+}
+
+
+/* 子绝父相 */
+
+.layui-form-item {
+    position: relative;
+}
+
+
+/* 定位输入框上的图标 */
+
+.layui-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.layui-input {
+    padding-left: 35px;
+}
