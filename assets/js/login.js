@@ -55,7 +55,7 @@ $(function() {
             })
     })
 
-    //4.实现表单注册功能
+    //4.实现表单登录功能
     $('.login-form').submit(function(e) {
         e.preventDefault() // 阻止默认提交行为
 
