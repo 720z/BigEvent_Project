@@ -90,6 +90,6 @@ body {
 .img-preview {
     overflow: hidden;
     border-radius: 50%;
-    background: url(./images/sample.jpg) no-repeat center;
+    background: url() no-repeat center;
     background-size: 100%;
 }
