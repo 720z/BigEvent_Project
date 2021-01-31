@@ -73,8 +73,9 @@ $(function() {
                 localStorage.setItem('token', res.token)
                 layer.msg('登录成功！')
 
-                //跳转到首页
-                location.href = './index.html' //此处全局路径
+                setTimeout(() => {
+                    location.href = './index.html' //注意此处全局路径写法
+                }, 500);
             })
     })
 
