@@ -1,5 +1,5 @@
 //文章管理=>文章类别管理页面
-//功能：1.页面一加载渲染列表 2.添加类别  3.修改类别
+//功能：1.页面一加载渲染列表  2.添加类别  3.编辑类别  4.删除
 
 $(function() {
     const { layer, form } = layui
@@ -90,5 +90,23 @@ $(function() {
         })
     })
 
+    // 6.点击删除按钮
+    $(document).on('click', '.del-btn', function() {
+        // 获取自定义属性的值
+        const id = $(this).data('id')
+        console.log(id);
+
+        //弹出"确认"框
+        layer.confirm('确认删除?', { icon: 3, title: '提示' }, function(index) {
+            //点击确定按钮，删除
+            axios.get(`/my/article/deletecate/${id}`).then(res => {
+                if (res.status !== 0) return layer.msg('删除失败!')
+                layer.msg('删除文章分类成功!')
+                getCateList() //重新渲染
+            })
+
+            layer.close(index);
+        });
+    })
 
 })
