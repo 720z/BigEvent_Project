@@ -82,7 +82,7 @@
         <tr>
             <th>{{$value.title}}</th>
             <th>{{$value.cate_name}}</th>
-            <th>{{$value.pub_date}}</th>
+            <th>{{$value.pub_date | dateFormat}}</th>
             <th>{{$value.state}}</th>
             <th><button data-id="{{$value.Id}}" type="button" class="edit-btn layui-btn layui-btn-xs">编辑</button>
                 <button data-id="{{$value.Id}}" type="button" class="del-btn layui-btn layui-btn-danger layui-btn-xs">删除</button></th>
@@ -97,6 +97,9 @@
     <script src="../assets/lib/layui/layui.all.js"></script>
     <script src="../assets/lib/axios.js"></script>
     <script src="../assets/js/commonAPI.js"></script>
+
+    <!-- 引入处理时间插件 -->
+    <script src="../assets/lib/moment.js"></script>
     <!-- 引入自己的js文件 -->
     <script src="../assets/js/article/list.js"></script>
 </body>
