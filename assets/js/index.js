@@ -5,12 +5,20 @@ $(function() {
 
     // 2.点击退出
     $('#logout').click(function() {
-        //请求接口(模拟)
-        // 1.清除token令牌
-        localStorage.removeItem('token')
 
-        // 2.跳转到登录页
-        location.href = './login.html'
+        //弹出确认框
+        layer.confirm('确认退出吗?', { icon: 3, title: '提示' }, function(index) {
+            //请求接口(模拟)
+            // 1.清除token令牌
+            localStorage.removeItem('token')
+
+            // 2.跳转到登录页
+            location.href = './login.html'
+
+            layer.close(index);
+        })
+
+
     })
 
 

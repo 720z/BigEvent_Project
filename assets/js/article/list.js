@@ -1,3 +1,5 @@
+//文章管理=>文章列表页面
+//功能：表格的增删改查
 $(function() {
     const { form, laypage } = layui
 
@@ -35,6 +37,11 @@ $(function() {
         axios.get('/my/article/list', { params: query }).then(res => {
             console.log(res);
             if (res.status !== 0) return layer.msg('获取失败!')
+
+            //7. 处理时间格式(在调用模版引擎之前)
+            template.defaults.imports.dateFormat = function(time) {
+                return moment(time).format('YYYY-MM-DD HH:mm:ss')
+            }
 
             // 3.2 使用模版引擎渲染页面
             const htmlStr = template('tpl', res)
@@ -107,6 +114,11 @@ $(function() {
                 if ($('.del-btn').length == 1 && query.pagenum !== 1) {
                     query.pagenum = query.pagenum - 1
                 }
+
+                //小细节：提交发送请求之前，修改页码值为第一页的内容
+                query.pagenum = 1
+
+
                 renderTable() //重新渲染
             })
 
@@ -114,9 +126,18 @@ $(function() {
         });
     })
 
-    //7. 处理时间格式
-    template.defaults.imports.dateFormat = function(time) {
-        return moment(time).format('YYYY-MM-DD HH:mm:ss')
-    }
+    // 7.点击“编辑”，跳转到编辑页面
+    $(document).on('click', '.edit-btn', function() {
+        //获取当前文章id
+        const id = $(this).data('id')
+
+        //把当前编辑的文章id 传入到编辑页面
+        location.href = `./edit.html?id=${id}`
+
+        //左边导航条更新，自动触发文章列表页a 链接的点击事件
+        window.parent.$('.layui-this').next().find('a').click()
+    })
+
+
 
 })

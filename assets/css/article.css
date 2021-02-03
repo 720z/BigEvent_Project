@@ -8,7 +8,8 @@ body {
     margin-top: 6px;
 }
 
-.add-form .edit-form {
+.add-form,
+.edit-form {
     padding-top: 20px;
     padding-right: 30px;
 }
