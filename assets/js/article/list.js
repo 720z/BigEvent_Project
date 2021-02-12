@@ -103,6 +103,7 @@ $(function() {
         const id = $(this).data('id')
         console.log(id);
 
+
         // 6.2 弹出一个询问框
         layer.confirm('确认删除?', { icon: 3, title: '提示' }, function(index) {
             //点击确定按钮，删除
@@ -113,11 +114,10 @@ $(function() {
                 //⭐填坑处理：当前页只有一条数据，且不处于第一页时，那么我们点击删除数据之后，应手动更新上一页数据
                 if ($('.del-btn').length == 1 && query.pagenum !== 1) {
                     query.pagenum = query.pagenum - 1
+
+                    //小细节：提交发送请求之前，修改页码值为第一页的内容(注意书写位置)
+                    query.pagenum = 1
                 }
-
-                //小细节：提交发送请求之前，修改页码值为第一页的内容
-                query.pagenum = 1
-
 
                 renderTable() //重新渲染
             })

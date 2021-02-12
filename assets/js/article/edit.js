@@ -53,8 +53,6 @@ $(function() {
     }
 
 
-
-
     // 3.初始化裁剪区域
     const $image = $('#image')
     $image.cropper({
