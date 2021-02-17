@@ -113,7 +113,7 @@ $(function() {
 
             // TODO: 跳转到文章列表页面,点击a链接
             location.href = './list.html' //全局路径
-            window.parent.$('.layui-this').prev().find('a').click()
+            window.parent.$('.layui-this').prev().find('a').click() //通过类名layui-this往上一层跳一格，控制高亮区域
         })
 
     }

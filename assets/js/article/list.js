@@ -58,7 +58,7 @@ $(function() {
             elem: 'pagination', //注意，这里的 test1 是 ID，不用加 # 号
             count: total, //数据总数，从服务端得到
             limit: query.pagesize, //每页显示的数量
-            limits: [2, 3, 4, 5], //每页的数据条数
+            limits: [4, 6, 10], //每页的数据条数
             curr: query.pagenum, //当前的页面值
             layout: ['count', 'limit', 'prev', 'page', 'next', 'skip'], //分页器的布局排版
             //切换
@@ -93,6 +93,9 @@ $(function() {
         query.cate_id = cate_id
         query.state = state
 
+        //小细节：提交发送请求之前，修改页码值为第一页的内容(注意书写位置)
+        query.pagenum = 1
+
         // 5.3重新调用渲染表格函数
         renderTable()
     })
@@ -115,8 +118,7 @@ $(function() {
                 if ($('.del-btn').length == 1 && query.pagenum !== 1) {
                     query.pagenum = query.pagenum - 1
 
-                    //小细节：提交发送请求之前，修改页码值为第一页的内容(注意书写位置)
-                    query.pagenum = 1
+
                 }
 
                 renderTable() //重新渲染
